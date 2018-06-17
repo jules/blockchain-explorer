@@ -1,0 +1,23 @@
+{
+  "name": "explorer",
+  "version": "1.0.0",
+  "description": "Placeholder",
+  "main": "routes.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julesdesmit/blockchain-explorer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/julesdesmit/blockchain-explorer/issues"
+  },
+  "homepage": "https://github.com/julesdesmit/blockchain-explorer#readme",
+  "dependencies": {
+    "next": "^6.0.3"
+  }
+}
