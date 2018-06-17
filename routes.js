@@ -1,8 +1,9 @@
 const routes = require('next-routes')();
 
 routes
-.add('/:address', '/campaigns/show')
-.add('/campaigns/:address/requests','/campaigns/requests/index')
-.add('/campaigns/:address/requests/new','/campaigns/requests/new');
+.add('/:address', '/address')
+.add('/:transaction','/transaction')
+.add('/:blocknumber','/blocknumber')
+.add('/:blockhash','/blockhash');
 
 module.exports = routes;
