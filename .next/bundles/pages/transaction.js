@@ -1,240 +1,8 @@
 module.exports =
 
-        __NEXT_REGISTER_PAGE('/', function() {
+        __NEXT_REGISTER_PAGE('/transaction', function() {
           var comp = 
-      webpackJsonp([4],{
-
-/***/ "./components/BlockCard.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator__ = __webpack_require__("./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__("./node_modules/react/cjs/react.development.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__scripts_web3__ = __webpack_require__("./scripts/web3.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_semantic_ui_react__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__scripts_timeconverter__ = __webpack_require__("./scripts/timeconverter.js");
-
-var _jsxFileName = "/Users/julesdesmit/Desktop/workspace/explorer/components/BlockCard.js";
-
-(function () {
-  var enterModule = __webpack_require__("./node_modules/react-hot-loader/index.js").enterModule;
-
-  enterModule && enterModule(module);
-})();
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } } function _next(value) { step("next", value); } function _throw(err) { step("throw", err); } _next(); }); }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-
-
-
-
-
-var BlockCard =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(BlockCard, _Component);
-
-  function BlockCard() {
-    var _ref;
-
-    var _temp, _this;
-
-    _classCallCheck(this, BlockCard);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_ref = BlockCard.__proto__ || Object.getPrototypeOf(BlockCard)).call.apply(_ref, [this].concat(args))), Object.defineProperty(_assertThisInitialized(_this), "state", {
-      configurable: true,
-      enumerable: true,
-      writable: true,
-      value: {
-        txcount: 0,
-        hash: '',
-        timestamp: '',
-        miner: ''
-      }
-    }), _temp));
-  }
-
-  _createClass(BlockCard, [{
-    key: "componentDidMount",
-    value: function () {
-      var _componentDidMount = _asyncToGenerator(
-      /*#__PURE__*/
-      __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee() {
-        var blockinfo, txcount, hash, timestamp, miner, time;
-        return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                if (false) {
-                  _context.next = 20;
-                  break;
-                }
-
-                _context.next = 3;
-                return __WEBPACK_IMPORTED_MODULE_2__scripts_web3__["a" /* default */].eth.getBlock(this.props.currentBlock);
-
-              case 3:
-                blockinfo = _context.sent;
-                _context.next = 6;
-                return __WEBPACK_IMPORTED_MODULE_2__scripts_web3__["a" /* default */].eth.getBlockTransactionCount(this.props.currentBlock);
-
-              case 6:
-                txcount = _context.sent;
-                hash = blockinfo.hash;
-                timestamp = blockinfo.timestamp;
-                miner = blockinfo.miner;
-                time = Object(__WEBPACK_IMPORTED_MODULE_4__scripts_timeconverter__["a" /* default */])(timestamp);
-
-                if (!(typeof txcount != 'integer')) {
-                  _context.next = 16;
-                  break;
-                }
-
-                this.setState({
-                  txcount: txcount,
-                  hash: hash,
-                  timestamp: time,
-                  miner: miner
-                });
-                return _context.abrupt("break", 20);
-
-              case 16:
-                this.setState({
-                  txcount: txcount,
-                  hash: hash,
-                  timestamp: time,
-                  miner: miner
-                });
-                return _context.abrupt("continue", 0);
-
-              case 18:
-                _context.next = 0;
-                break;
-
-              case 20:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, this);
-      }));
-
-      return function componentDidMount() {
-        return _componentDidMount.apply(this, arguments);
-      };
-    }()
-  }, {
-    key: "render",
-    value: function render() {
-      var Row = __WEBPACK_IMPORTED_MODULE_3_semantic_ui_react__["g" /* Table */].Row,
-          Cell = __WEBPACK_IMPORTED_MODULE_3_semantic_ui_react__["g" /* Table */].Cell;
-      var currentBlock = this.props.currentBlock;
-
-      if (currentBlock < 1) {
-        return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(Row, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 34
-          }
-        }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(Cell, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 35
-          }
-        }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(Cell, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 36
-          }
-        }));
-      } else {
-        return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(Row, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 40
-          }
-        }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(Cell, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 41
-          }
-        }, this.state.timestamp), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(Cell, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 42
-          }
-        }, currentBlock), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(Cell, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 43
-          }
-        }, this.state.hash), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(Cell, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 44
-          }
-        }, this.state.txcount), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(Cell, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 45
-          }
-        }, this.state.miner));
-      }
-    }
-  }, {
-    key: "__reactstandin__regenerateByEval",
-    // @ts-ignore
-    value: function __reactstandin__regenerateByEval(key, code) {
-      // @ts-ignore
-      this[key] = eval(code);
-    }
-  }]);
-
-  return BlockCard;
-}(__WEBPACK_IMPORTED_MODULE_1_react__["Component"]);
-
-var _default = BlockCard;
-/* harmony default export */ __webpack_exports__["a"] = (_default);
-;
-
-(function () {
-  var reactHotLoader = __webpack_require__("./node_modules/react-hot-loader/index.js").default;
-
-  var leaveModule = __webpack_require__("./node_modules/react-hot-loader/index.js").leaveModule;
-
-  if (!reactHotLoader) {
-    return;
-  }
-
-  reactHotLoader.register(BlockCard, "BlockCard", "/Users/julesdesmit/Desktop/workspace/explorer/components/BlockCard.js");
-  reactHotLoader.register(_default, "default", "/Users/julesdesmit/Desktop/workspace/explorer/components/BlockCard.js");
-  leaveModule(module);
-})();
-
-;
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
-
-/***/ }),
+      webpackJsonp([7],{
 
 /***/ "./components/Header.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -97697,7 +97465,7 @@ function extend() {
 
 /***/ }),
 
-/***/ "./pages/index.js":
+/***/ "./pages/transaction.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -97707,13 +97475,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__("./node_modules/react/cjs/react.development.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__scripts_web3__ = __webpack_require__("./scripts/web3.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_BlockCard__ = __webpack_require__("./components/BlockCard.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Layout__ = __webpack_require__("./components/Layout.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_semantic_ui_react__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__routes__ = __webpack_require__("./routes.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__routes___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__routes__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Layout__ = __webpack_require__("./components/Layout.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_semantic_ui_react__ = __webpack_require__("./node_modules/semantic-ui-react/dist/es/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__routes__ = __webpack_require__("./routes.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__routes___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__routes__);
 
-var _jsxFileName = "/Users/julesdesmit/Desktop/workspace/explorer/pages/index.js";
+var _jsxFileName = "/Users/julesdesmit/Desktop/workspace/explorer/pages/transaction.js";
 
 (function () {
   var enterModule = __webpack_require__("./node_modules/react-hot-loader/index.js").enterModule;
@@ -97743,188 +97510,135 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 
 
-
-var ExplorerIndex =
+var Transaction =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(ExplorerIndex, _Component);
+  _inherits(Transaction, _Component);
 
-  function ExplorerIndex(props) {
-    var _this;
+  function Transaction() {
+    var _ref;
 
-    _classCallCheck(this, ExplorerIndex);
+    var _temp, _this;
 
-    _this = _possibleConstructorReturn(this, (ExplorerIndex.__proto__ || Object.getPrototypeOf(ExplorerIndex)).call(this, props));
-    Object.defineProperty(_assertThisInitialized(_this), "state", {
+    _classCallCheck(this, Transaction);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_ref = Transaction.__proto__ || Object.getPrototypeOf(Transaction)).call.apply(_ref, [this].concat(args))), Object.defineProperty(_assertThisInitialized(_this), "state", {
       configurable: true,
       enumerable: true,
       writable: true,
       value: {
-        blockNumber: 0,
-        initialNumber: 0,
-        blocksFound: 0,
-        found: false,
+        hash: '',
+        block: '',
+        size: 0,
+        transactions: [],
+        to: '',
+        from: '',
         search: '',
-        errorMessage: ''
+        errorMessage: '',
+        value: 0
       }
-    });
-    Object.defineProperty(_assertThisInitialized(_this), "tick", {
+    }), Object.defineProperty(_assertThisInitialized(_this), "onSubmit", {
       configurable: true,
       enumerable: true,
       writable: true,
       value: function () {
         var _value = _asyncToGenerator(
         /*#__PURE__*/
-        __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee() {
-          var number, difference;
+        __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee(event) {
+          var message, _message, block, _message2;
+
           return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
             while (1) {
               switch (_context.prev = _context.next) {
                 case 0:
-                  _context.next = 2;
-                  return __WEBPACK_IMPORTED_MODULE_2__scripts_web3__["a" /* default */].eth.getBlockNumber();
-
-                case 2:
-                  number = _context.sent;
-
-                  if (number > _this.state.blockNumber) {
-                    if (number != _this.state.blockNumber) {
-                      if (_this.state.initialNumber == 0) {
-                        _this.setState({
-                          blockNumber: number,
-                          initialNumber: number
-                        });
-                      } else {
-                        _this.setState({
-                          blockNumber: number
-                        });
-                      }
-
-                      difference = _this.state.blockNumber - _this.state.initialNumber;
-
-                      _this.setState({
-                        blocksFound: difference
-                      });
-
-                      if (_this.state.blocksFound > 0) {
-                        _this.setState({
-                          found: true
-                        });
-                      }
-                    }
-                  }
-
-                case 4:
-                case "end":
-                  return _context.stop();
-              }
-            }
-          }, _callee, this);
-        }));
-
-        return function value() {
-          return _value.apply(this, arguments);
-        };
-      }()
-    });
-    Object.defineProperty(_assertThisInitialized(_this), "onSubmit", {
-      configurable: true,
-      enumerable: true,
-      writable: true,
-      value: function () {
-        var _value2 = _asyncToGenerator(
-        /*#__PURE__*/
-        __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee2(event) {
-          var message, _message, block, _message2;
-
-          return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
-            while (1) {
-              switch (_context2.prev = _context2.next) {
-                case 0:
                   event.preventDefault();
 
                   if (!(_this.state.search.length == 66)) {
-                    _context2.next = 14;
+                    _context.next = 14;
                     break;
                   }
 
-                  _context2.prev = 2;
-                  _context2.next = 5;
+                  _context.prev = 2;
+                  _context.next = 5;
                   return __WEBPACK_IMPORTED_MODULE_2__scripts_web3__["a" /* default */].eth.getTransaction(_this.state.search);
 
                 case 5:
-                  __WEBPACK_IMPORTED_MODULE_6__routes__["Router"].pushRoute("/transaction/".concat(_this.state.search), {
+                  __WEBPACK_IMPORTED_MODULE_5__routes__["Router"].pushRoute("/transaction/".concat(_this.state.search), {
                     txhash: _this.state.search
                   }, {
                     txhash: _this.state.search
                   });
-                  _context2.next = 12;
+                  _context.next = 12;
                   break;
 
                 case 8:
-                  _context2.prev = 8;
-                  _context2.t0 = _context2["catch"](2);
-                  message = _context2.t0.message;
+                  _context.prev = 8;
+                  _context.t0 = _context["catch"](2);
+                  message = _context.t0.message;
 
                   _this.setState({
                     errorMessage: message
                   });
 
                 case 12:
-                  _context2.next = 38;
+                  _context.next = 38;
                   break;
 
                 case 14:
                   if (!(_this.state.search.length == 42)) {
-                    _context2.next = 27;
+                    _context.next = 27;
                     break;
                   }
 
-                  _context2.prev = 15;
-                  _context2.next = 18;
+                  _context.prev = 15;
+                  _context.next = 18;
                   return __WEBPACK_IMPORTED_MODULE_2__scripts_web3__["a" /* default */].eth.getBalance(_this.state.search);
 
                 case 18:
-                  __WEBPACK_IMPORTED_MODULE_6__routes__["Router"].pushRoute("/address/".concat(_this.state.search), {
+                  __WEBPACK_IMPORTED_MODULE_5__routes__["Router"].pushRoute("/address/".concat(_this.state.search), {
                     address: _this.state.search
                   }, {
                     address: _this.state.search
                   });
-                  _context2.next = 25;
+                  _context.next = 25;
                   break;
 
                 case 21:
-                  _context2.prev = 21;
-                  _context2.t1 = _context2["catch"](15);
-                  _message = _context2.t1.message;
+                  _context.prev = 21;
+                  _context.t1 = _context["catch"](15);
+                  _message = _context.t1.message;
 
                   _this.setState({
                     errorMessage: _message
                   });
 
                 case 25:
-                  _context2.next = 38;
+                  _context.next = 38;
                   break;
 
                 case 27:
-                  _context2.prev = 27;
+                  _context.prev = 27;
                   block = parseInt(_this.state.search);
-                  _context2.next = 31;
+                  _context.next = 31;
                   return __WEBPACK_IMPORTED_MODULE_2__scripts_web3__["a" /* default */].eth.getBlock(block);
 
                 case 31:
-                  __WEBPACK_IMPORTED_MODULE_6__routes__["Router"].pushRoute("/blocknumber/".concat(_this.state.search), {
+                  __WEBPACK_IMPORTED_MODULE_5__routes__["Router"].pushRoute("/blocknumber/".concat(_this.state.search), {
                     bnumber: _this.state.search
                   }, {
                     bnumber: _this.state.search
                   });
-                  _context2.next = 38;
+                  _context.next = 38;
                   break;
 
                 case 34:
-                  _context2.prev = 34;
-                  _context2.t2 = _context2["catch"](27);
-                  _message2 = _context2.t2.message;
+                  _context.prev = 34;
+                  _context.t2 = _context["catch"](27);
+                  _message2 = _context.t2.message;
 
                   _this.setState({
                     errorMessage: _message2
@@ -97932,231 +97646,145 @@ function (_Component) {
 
                 case 38:
                 case "end":
-                  return _context2.stop();
+                  return _context.stop();
               }
             }
-          }, _callee2, this, [[2, 8], [15, 21], [27, 34]]);
+          }, _callee, this, [[2, 8], [15, 21], [27, 34]]);
         }));
 
         return function value(_x) {
-          return _value2.apply(this, arguments);
+          return _value.apply(this, arguments);
         };
       }()
-    });
-
-    _this.tick();
-
-    return _this;
+    }), _temp));
   }
 
-  _createClass(ExplorerIndex, [{
+  _createClass(Transaction, [{
     key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
+    value: function () {
+      var _componentDidMount = _asyncToGenerator(
+      /*#__PURE__*/
+      __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee2() {
+        var blockinfo, hash, block, value, to, from;
+        return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return __WEBPACK_IMPORTED_MODULE_2__scripts_web3__["a" /* default */].eth.getTransaction(this.props.transaction);
 
-      this.interval = setInterval(function () {
-        return _this2.tick();
-      }, 5000);
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      clearInterval(this.interval);
-    }
-  }, {
-    key: "onClick",
-    value: function onClick() {
-      window.location.reload();
-    }
+              case 2:
+                blockinfo = _context2.sent;
+                hash = blockinfo.hash;
+                block = blockinfo.blockNumber;
+                value = __WEBPACK_IMPORTED_MODULE_2__scripts_web3__["a" /* default */].utils.fromWei(blockinfo.value, 'ether');
+                to = blockinfo.to;
+                from = blockinfo.from;
+                this.setState({
+                  block: block,
+                  hash: hash,
+                  value: value,
+                  to: to,
+                  from: from
+                });
+
+              case 9:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      return function componentDidMount() {
+        return _componentDidMount.apply(this, arguments);
+      };
+    }()
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this2 = this;
 
-      var Header = __WEBPACK_IMPORTED_MODULE_5_semantic_ui_react__["g" /* Table */].Header,
-          Row = __WEBPACK_IMPORTED_MODULE_5_semantic_ui_react__["g" /* Table */].Row,
-          HeaderCell = __WEBPACK_IMPORTED_MODULE_5_semantic_ui_react__["g" /* Table */].HeaderCell,
-          Body = __WEBPACK_IMPORTED_MODULE_5_semantic_ui_react__["g" /* Table */].Body;
-
-      if (this.state.blockNumber == 0) {
-        return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 82
-          }
-        });
-      } else {
-        return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_Layout__["a" /* default */], {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 85
-          }
-        }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 86
-          }
-        }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_semantic_ui_react__["b" /* Container */], {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 87
-          }
-        }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_semantic_ui_react__["c" /* Form */], {
-          onSubmit: this.onSubmit,
-          error: !!this.state.errorMessage,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 88
-          }
-        }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_semantic_ui_react__["c" /* Form */].Field, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 89
-          }
-        }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_semantic_ui_react__["d" /* Input */], {
-          fluid: true,
-          icon: "search",
-          placeholder: "Enter address, tx hash or block number...",
-          value: this.state.search,
-          onChange: function onChange(event) {
-            return _this3.setState({
-              search: event.target.value
-            });
-          },
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 90
-          }
-        })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_semantic_ui_react__["f" /* Message */], {
-          error: true,
-          header: "Oops!",
-          content: this.state.errorMessage,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 95
-          }
-        }))), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_semantic_ui_react__["a" /* Button */], {
-          fluid: true,
-          disabled: !this.state.found,
-          onClick: this.onClick,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 98
-          }
-        }, this.state.blocksFound, " new blocks found since you last loaded this page"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("link", {
-          rel: "stylesheet",
-          href: "//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 101
-          }
-        }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_semantic_ui_react__["g" /* Table */], {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 102
-          }
-        }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(Header, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 103
-          }
-        }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(Row, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 104
-          }
-        }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(HeaderCell, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 105
-          }
-        }, "Time"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(HeaderCell, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 106
-          }
-        }, "Block #"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(HeaderCell, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 107
-          }
-        }, "Block hash"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(HeaderCell, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 108
-          }
-        }, "Tx count"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(HeaderCell, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 109
-          }
-        }, "Miner"))), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(Body, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 112
-          }
-        }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_BlockCard__["a" /* default */], {
-          currentBlock: this.state.initialNumber,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 113
-          }
-        }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_BlockCard__["a" /* default */], {
-          currentBlock: this.state.initialNumber - 1,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 114
-          }
-        }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_BlockCard__["a" /* default */], {
-          currentBlock: this.state.initialNumber - 2,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 115
-          }
-        }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_BlockCard__["a" /* default */], {
-          currentBlock: this.state.initialNumber - 3,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 116
-          }
-        }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_BlockCard__["a" /* default */], {
-          currentBlock: this.state.initialNumber - 4,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 117
-          }
-        }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_BlockCard__["a" /* default */], {
-          currentBlock: this.state.initialNumber - 5,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 118
-          }
-        }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_BlockCard__["a" /* default */], {
-          currentBlock: this.state.initialNumber - 6,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 119
-          }
-        }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_BlockCard__["a" /* default */], {
-          currentBlock: this.state.initialNumber - 7,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 120
-          }
-        }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_BlockCard__["a" /* default */], {
-          currentBlock: this.state.initialNumber - 8,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 121
-          }
-        }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_BlockCard__["a" /* default */], {
-          currentBlock: this.state.initialNumber - 9,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 122
-          }
-        })))));
-      }
+      return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_Layout__["a" /* default */], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 65
+        }
+      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 66
+        }
+      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_semantic_ui_react__["b" /* Container */], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 67
+        }
+      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_semantic_ui_react__["c" /* Form */], {
+        onSubmit: this.onSubmit,
+        error: !!this.state.errorMessage,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 68
+        }
+      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_semantic_ui_react__["c" /* Form */].Field, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 69
+        }
+      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_semantic_ui_react__["d" /* Input */], {
+        fluid: true,
+        icon: "search",
+        placeholder: "Enter address, tx hash or block number...",
+        value: this.state.search,
+        onChange: function onChange(event) {
+          return _this2.setState({
+            search: event.target.value
+          });
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 70
+        }
+      })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_semantic_ui_react__["f" /* Message */], {
+        error: true,
+        header: "Oops!",
+        content: this.state.errorMessage,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 75
+        }
+      }))), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 78
+        }
+      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 79
+        }
+      }, "Transaction hash: ", this.props.transaction), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 80
+        }
+      }, "Block number: ", this.state.block), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 81
+        }
+      }, "Transaction value: ", this.state.value, " Ether"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 82
+        }
+      }, "Sender: ", this.state.from), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 83
+        }
+      }, "Recipient: ", this.state.to))));
     }
   }, {
     key: "__reactstandin__regenerateByEval",
@@ -98165,12 +97793,40 @@ function (_Component) {
       // @ts-ignore
       this[key] = eval(code);
     }
+  }], [{
+    key: "getInitialProps",
+    value: function () {
+      var _getInitialProps = _asyncToGenerator(
+      /*#__PURE__*/
+      __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee3(props) {
+        var transaction;
+        return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                transaction = props.query.transaction;
+                return _context3.abrupt("return", {
+                  transaction: transaction
+                });
+
+              case 2:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this);
+      }));
+
+      return function getInitialProps(_x2) {
+        return _getInitialProps.apply(this, arguments);
+      };
+    }()
   }]);
 
-  return ExplorerIndex;
+  return Transaction;
 }(__WEBPACK_IMPORTED_MODULE_1_react__["Component"]);
 
-var _default = ExplorerIndex;
+var _default = Transaction;
 /* harmony default export */ __webpack_exports__["default"] = (_default);
 ;
 
@@ -98183,8 +97839,8 @@ var _default = ExplorerIndex;
     return;
   }
 
-  reactHotLoader.register(ExplorerIndex, "ExplorerIndex", "/Users/julesdesmit/Desktop/workspace/explorer/pages/index.js");
-  reactHotLoader.register(_default, "default", "/Users/julesdesmit/Desktop/workspace/explorer/pages/index.js");
+  reactHotLoader.register(Transaction, "Transaction", "/Users/julesdesmit/Desktop/workspace/explorer/pages/transaction.js");
+  reactHotLoader.register(_default, "default", "/Users/julesdesmit/Desktop/workspace/explorer/pages/transaction.js");
   leaveModule(module);
 })();
 
@@ -98205,7 +97861,7 @@ var _default = ExplorerIndex;
           next.router.update(r, Component)
         }
       }
-    })(typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__.default : (module.exports.default || module.exports), "/")
+    })(typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__.default : (module.exports.default || module.exports), "/transaction")
   
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
 
@@ -98241,71 +97897,6 @@ module.exports = routes;
 
 ;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__("./node_modules/webpack/buildin/module.js")(module)))
-
-/***/ }),
-
-/***/ "./scripts/timeconverter.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(module) {(function () {
-  var enterModule = __webpack_require__("./node_modules/react-hot-loader/index.js").enterModule;
-
-  enterModule && enterModule(module);
-})();
-
-var timeConverter = function timeConverter(UNIX_timestamp) {
-  var a = new Date(UNIX_timestamp * 1000);
-  var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  var year = a.getFullYear();
-  var month = months[a.getMonth()];
-  var date = a.getDate();
-  var hour = a.getHours();
-  var min = a.getMinutes();
-  var sec = a.getSeconds();
-
-  if (hour == 0) {
-    hour = '00';
-  } else if (hour < 10) {
-    hour = '0' + hour;
-  }
-
-  if (min == 0) {
-    min = '00';
-  } else if (min < 10) {
-    min = '0' + min;
-  }
-
-  if (sec == 0) {
-    sec = '00';
-  } else if (sec < 10) {
-    sec = '0' + sec;
-  }
-
-  var time = hour + ':' + min + ':' + sec;
-  return time;
-};
-
-var _default = timeConverter;
-/* harmony default export */ __webpack_exports__["a"] = (_default);
-;
-
-(function () {
-  var reactHotLoader = __webpack_require__("./node_modules/react-hot-loader/index.js").default;
-
-  var leaveModule = __webpack_require__("./node_modules/react-hot-loader/index.js").leaveModule;
-
-  if (!reactHotLoader) {
-    return;
-  }
-
-  reactHotLoader.register(timeConverter, "timeConverter", "/Users/julesdesmit/Desktop/workspace/explorer/scripts/timeconverter.js");
-  reactHotLoader.register(_default, "default", "/Users/julesdesmit/Desktop/workspace/explorer/scripts/timeconverter.js");
-  leaveModule(module);
-})();
-
-;
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
 
 /***/ }),
 
@@ -98349,10 +97940,10 @@ var _default = web3;
 
 /***/ }),
 
-/***/ 3:
+/***/ 10:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__("./pages/index.js");
+module.exports = __webpack_require__("./pages/transaction.js");
 
 
 /***/ }),
@@ -98385,8 +97976,8 @@ module.exports = __webpack_require__("./pages/index.js");
 
 /***/ })
 
-},[3])
+},[10])
           return { page: comp.default }
         })
       ;
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=transaction.js.map

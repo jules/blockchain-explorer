@@ -651,7 +651,6 @@ function (_Component) {
   }, {
     key: "onClick",
     value: function onClick() {
-      console.log('clicked');
       window.location.reload();
     }
   }, {
@@ -668,36 +667,36 @@ function (_Component) {
         return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 83
+            lineNumber: 82
           }
         });
       } else {
         return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_Layout__["a" /* default */], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 86
+            lineNumber: 85
           }
         }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 87
+            lineNumber: 86
           }
         }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_semantic_ui_react__["Container"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 88
+            lineNumber: 87
           }
         }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_semantic_ui_react__["Form"], {
           onSubmit: this.onSubmit,
           error: !!this.state.errorMessage,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 89
+            lineNumber: 88
           }
         }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_semantic_ui_react__["Form"].Field, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 90
+            lineNumber: 89
           }
         }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_semantic_ui_react__["Input"], {
           fluid: true,
@@ -711,7 +710,7 @@ function (_Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 91
+            lineNumber: 90
           }
         })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_semantic_ui_react__["Message"], {
           error: true,
@@ -719,7 +718,7 @@ function (_Component) {
           content: this.state.errorMessage,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 96
+            lineNumber: 95
           }
         }))), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_semantic_ui_react__["Button"], {
           fluid: true,
@@ -727,119 +726,119 @@ function (_Component) {
           onClick: this.onClick,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 99
+            lineNumber: 98
           }
         }, this.state.blocksFound, " new blocks found since you last loaded this page"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("link", {
           rel: "stylesheet",
           href: "//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 102
+            lineNumber: 101
           }
         }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_semantic_ui_react__["Table"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 103
+            lineNumber: 102
           }
         }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(Header, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 104
+            lineNumber: 103
           }
         }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(Row, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 105
+            lineNumber: 104
           }
         }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(HeaderCell, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 106
+            lineNumber: 105
           }
         }, "Time"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(HeaderCell, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 107
+            lineNumber: 106
           }
         }, "Block #"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(HeaderCell, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 108
+            lineNumber: 107
           }
         }, "Block hash"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(HeaderCell, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 109
+            lineNumber: 108
           }
         }, "Tx count"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(HeaderCell, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 110
+            lineNumber: 109
           }
         }, "Miner"))), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(Body, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 113
+            lineNumber: 112
           }
         }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_BlockCard__["a" /* default */], {
           currentBlock: this.state.initialNumber,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 114
+            lineNumber: 113
           }
         }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_BlockCard__["a" /* default */], {
           currentBlock: this.state.initialNumber - 1,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 115
+            lineNumber: 114
           }
         }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_BlockCard__["a" /* default */], {
           currentBlock: this.state.initialNumber - 2,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 116
+            lineNumber: 115
           }
         }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_BlockCard__["a" /* default */], {
           currentBlock: this.state.initialNumber - 3,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 117
+            lineNumber: 116
           }
         }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_BlockCard__["a" /* default */], {
           currentBlock: this.state.initialNumber - 4,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 118
+            lineNumber: 117
           }
         }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_BlockCard__["a" /* default */], {
           currentBlock: this.state.initialNumber - 5,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 119
+            lineNumber: 118
           }
         }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_BlockCard__["a" /* default */], {
           currentBlock: this.state.initialNumber - 6,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 120
+            lineNumber: 119
           }
         }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_BlockCard__["a" /* default */], {
           currentBlock: this.state.initialNumber - 7,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 121
+            lineNumber: 120
           }
         }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_BlockCard__["a" /* default */], {
           currentBlock: this.state.initialNumber - 8,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 122
+            lineNumber: 121
           }
         }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_BlockCard__["a" /* default */], {
           currentBlock: this.state.initialNumber - 9,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 123
+            lineNumber: 122
           }
         })))));
       }
