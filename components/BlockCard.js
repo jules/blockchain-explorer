@@ -22,6 +22,7 @@ class BlockCard extends Component {
                 this.setState({txcount:txcount, hash:hash, timestamp:time, miner:miner});
                 break;
             } else {
+                this.setState({txcount:txcount, hash:hash, timestamp:time, miner:miner});
                 continue;
             }
         }

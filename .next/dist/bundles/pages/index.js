@@ -149,7 +149,7 @@ function (_Component) {
             switch (_context.prev = _context.next) {
               case 0:
                 if (false) {
-                  _context.next = 19;
+                  _context.next = 20;
                   break;
                 }
 
@@ -179,16 +179,22 @@ function (_Component) {
                   timestamp: time,
                   miner: miner
                 });
-                return _context.abrupt("break", 19);
+                return _context.abrupt("break", 20);
 
               case 16:
+                this.setState({
+                  txcount: txcount,
+                  hash: hash,
+                  timestamp: time,
+                  miner: miner
+                });
                 return _context.abrupt("continue", 0);
 
-              case 17:
+              case 18:
                 _context.next = 0;
                 break;
 
-              case 19:
+              case 20:
               case "end":
                 return _context.stop();
             }
@@ -211,49 +217,49 @@ function (_Component) {
         return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(Row, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 33
+            lineNumber: 34
           }
         }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(Cell, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 34
+            lineNumber: 35
           }
         }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(Cell, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 35
+            lineNumber: 36
           }
         }));
       } else {
         return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(Row, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 39
+            lineNumber: 40
           }
         }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(Cell, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 40
+            lineNumber: 41
           }
         }, this.state.timestamp), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(Cell, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 41
+            lineNumber: 42
           }
         }, currentBlock), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(Cell, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 42
+            lineNumber: 43
           }
         }, this.state.hash), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(Cell, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 43
+            lineNumber: 44
           }
         }, this.state.txcount), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(Cell, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 44
+            lineNumber: 45
           }
         }, this.state.miner));
       }
@@ -442,7 +448,9 @@ function (_Component) {
         blockNumber: 0,
         initialNumber: 0,
         blocksFound: 0,
-        found: false
+        found: false,
+        search: '',
+        errorMessage: ''
       }
     });
     Object.defineProperty(_assertThisInitialized(_this), "tick", {
@@ -504,6 +512,122 @@ function (_Component) {
         };
       }()
     });
+    Object.defineProperty(_assertThisInitialized(_this), "onSubmit", {
+      configurable: true,
+      enumerable: true,
+      writable: true,
+      value: function () {
+        var _value2 = _asyncToGenerator(
+        /*#__PURE__*/
+        __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee2(event) {
+          var message, _message, block, _message2;
+
+          return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+            while (1) {
+              switch (_context2.prev = _context2.next) {
+                case 0:
+                  event.preventDefault();
+
+                  if (!(_this.state.search.length == 66)) {
+                    _context2.next = 14;
+                    break;
+                  }
+
+                  _context2.prev = 2;
+                  _context2.next = 5;
+                  return __WEBPACK_IMPORTED_MODULE_2__scripts_web3__["a" /* default */].eth.getTransaction(_this.state.search);
+
+                case 5:
+                  __WEBPACK_IMPORTED_MODULE_6__routes__["Router"].pushRoute("/transaction/".concat(_this.state.search), {
+                    txhash: _this.state.search
+                  }, {
+                    txhash: _this.state.search
+                  });
+                  _context2.next = 12;
+                  break;
+
+                case 8:
+                  _context2.prev = 8;
+                  _context2.t0 = _context2["catch"](2);
+                  message = _context2.t0.message;
+
+                  _this.setState({
+                    errorMessage: message
+                  });
+
+                case 12:
+                  _context2.next = 38;
+                  break;
+
+                case 14:
+                  if (!(_this.state.search.length == 42)) {
+                    _context2.next = 27;
+                    break;
+                  }
+
+                  _context2.prev = 15;
+                  _context2.next = 18;
+                  return __WEBPACK_IMPORTED_MODULE_2__scripts_web3__["a" /* default */].eth.getBalance(_this.state.search);
+
+                case 18:
+                  __WEBPACK_IMPORTED_MODULE_6__routes__["Router"].pushRoute("/address/".concat(_this.state.search), {
+                    address: _this.state.search
+                  }, {
+                    address: _this.state.search
+                  });
+                  _context2.next = 25;
+                  break;
+
+                case 21:
+                  _context2.prev = 21;
+                  _context2.t1 = _context2["catch"](15);
+                  _message = _context2.t1.message;
+
+                  _this.setState({
+                    errorMessage: _message
+                  });
+
+                case 25:
+                  _context2.next = 38;
+                  break;
+
+                case 27:
+                  _context2.prev = 27;
+                  block = parseInt(_this.state.search);
+                  _context2.next = 31;
+                  return __WEBPACK_IMPORTED_MODULE_2__scripts_web3__["a" /* default */].eth.getBlock(block);
+
+                case 31:
+                  __WEBPACK_IMPORTED_MODULE_6__routes__["Router"].pushRoute("/blocknumber/".concat(_this.state.search), {
+                    bnumber: _this.state.search
+                  }, {
+                    bnumber: _this.state.search
+                  });
+                  _context2.next = 38;
+                  break;
+
+                case 34:
+                  _context2.prev = 34;
+                  _context2.t2 = _context2["catch"](27);
+                  _message2 = _context2.t2.message;
+
+                  _this.setState({
+                    errorMessage: _message2
+                  });
+
+                case 38:
+                case "end":
+                  return _context2.stop();
+              }
+            }
+          }, _callee2, this, [[2, 8], [15, 21], [27, 34]]);
+        }));
+
+        return function value(_x) {
+          return _value2.apply(this, arguments);
+        };
+      }()
+    });
 
     _this.tick();
 
@@ -525,8 +649,16 @@ function (_Component) {
       clearInterval(this.interval);
     }
   }, {
+    key: "onClick",
+    value: function onClick() {
+      console.log('clicked');
+      window.location.reload();
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
       var Header = __WEBPACK_IMPORTED_MODULE_5_semantic_ui_react__["Table"].Header,
           Row = __WEBPACK_IMPORTED_MODULE_5_semantic_ui_react__["Table"].Row,
           HeaderCell = __WEBPACK_IMPORTED_MODULE_5_semantic_ui_react__["Table"].HeaderCell,
@@ -536,149 +668,178 @@ function (_Component) {
         return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 47
+            lineNumber: 83
           }
         });
       } else {
         return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_Layout__["a" /* default */], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 50
+            lineNumber: 86
           }
         }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 51
+            lineNumber: 87
           }
-        }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__routes__["Link"], {
-          route: "/",
+        }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_semantic_ui_react__["Container"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 52
+            lineNumber: 88
           }
-        }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("a", {
+        }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_semantic_ui_react__["Form"], {
+          onSubmit: this.onSubmit,
+          error: !!this.state.errorMessage,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 53
+            lineNumber: 89
           }
-        }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_semantic_ui_react__["Button"], {
+        }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_semantic_ui_react__["Form"].Field, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 90
+          }
+        }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_semantic_ui_react__["Input"], {
+          fluid: true,
+          icon: "search",
+          placeholder: "Enter address, tx hash or block number...",
+          value: this.state.search,
+          onChange: function onChange(event) {
+            return _this3.setState({
+              search: event.target.value
+            });
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 91
+          }
+        })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_semantic_ui_react__["Message"], {
+          error: true,
+          header: "Oops!",
+          content: this.state.errorMessage,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 96
+          }
+        }))), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_semantic_ui_react__["Button"], {
           fluid: true,
           disabled: !this.state.found,
+          onClick: this.onClick,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 54
+            lineNumber: 99
           }
-        }, this.state.blocksFound, " blocks found since your last refresh"))), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("link", {
+        }, this.state.blocksFound, " new blocks found since you last loaded this page"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("link", {
           rel: "stylesheet",
           href: "//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 59
+            lineNumber: 102
           }
         }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_semantic_ui_react__["Table"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 60
+            lineNumber: 103
           }
         }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(Header, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 61
+            lineNumber: 104
           }
         }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(Row, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 62
+            lineNumber: 105
           }
         }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(HeaderCell, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 63
+            lineNumber: 106
           }
         }, "Time"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(HeaderCell, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 64
+            lineNumber: 107
           }
         }, "Block #"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(HeaderCell, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 65
+            lineNumber: 108
           }
         }, "Block hash"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(HeaderCell, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 66
+            lineNumber: 109
           }
         }, "Tx count"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(HeaderCell, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 67
+            lineNumber: 110
           }
         }, "Miner"))), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(Body, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 70
+            lineNumber: 113
           }
         }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_BlockCard__["a" /* default */], {
           currentBlock: this.state.initialNumber,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 71
+            lineNumber: 114
           }
         }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_BlockCard__["a" /* default */], {
           currentBlock: this.state.initialNumber - 1,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 72
+            lineNumber: 115
           }
         }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_BlockCard__["a" /* default */], {
           currentBlock: this.state.initialNumber - 2,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 73
+            lineNumber: 116
           }
         }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_BlockCard__["a" /* default */], {
           currentBlock: this.state.initialNumber - 3,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 74
+            lineNumber: 117
           }
         }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_BlockCard__["a" /* default */], {
           currentBlock: this.state.initialNumber - 4,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 75
+            lineNumber: 118
           }
         }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_BlockCard__["a" /* default */], {
           currentBlock: this.state.initialNumber - 5,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 76
+            lineNumber: 119
           }
         }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_BlockCard__["a" /* default */], {
           currentBlock: this.state.initialNumber - 6,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 77
+            lineNumber: 120
           }
         }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_BlockCard__["a" /* default */], {
           currentBlock: this.state.initialNumber - 7,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 78
+            lineNumber: 121
           }
         }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_BlockCard__["a" /* default */], {
           currentBlock: this.state.initialNumber - 8,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 79
+            lineNumber: 122
           }
         }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_BlockCard__["a" /* default */], {
           currentBlock: this.state.initialNumber - 9,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 80
+            lineNumber: 123
           }
         })))));
       }
@@ -697,7 +858,7 @@ function (_Component) {
 
 var routes = __webpack_require__("next-routes")();
 
-routes.add('/:address', '/address').add('/:transaction', '/transaction').add('/:blocknumber', '/blocknumber').add('/:blockhash', '/blockhash');
+routes.add('/address/:address', '/address').add('/transaction/:transaction', '/transaction').add('/blocknumber/:blocknumber', '/blocknumber');
 module.exports = routes;
 
 /***/ }),

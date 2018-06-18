@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import web3 from '../scripts/web3';
 import BlockCard from '../components/BlockCard';
 import Layout from '../components/Layout';
-import {Table, Button} from 'semantic-ui-react';
-import {Link} from '../routes';
+import {Table, Button, Input, Container, Form, Message} from 'semantic-ui-react';
+import {Link, Router} from '../routes';
 
 
 class ExplorerIndex extends Component {
@@ -11,7 +11,9 @@ class ExplorerIndex extends Component {
         blockNumber:0,
         initialNumber:0,
         blocksFound:0,
-        found:false
+        found:false,
+        search:'',
+        errorMessage:''
     }
     constructor(props) {
         super(props);
@@ -41,6 +43,39 @@ class ExplorerIndex extends Component {
     componentWillUnmount() {
         clearInterval(this.interval);
     }
+    onSubmit = async (event) => {
+        event.preventDefault();
+
+        if(this.state.search.length == 66) {
+            try {
+                await web3.eth.getTransaction(this.state.search);
+                Router.pushRoute(`/transaction/${this.state.search}`, {txhash:this.state.search}, {txhash:this.state.search});
+            } catch (err) {
+                const message = err.message;
+                this.setState({errorMessage:message})
+            }
+        } else if(this.state.search.length == 42) {
+            try {
+                await web3.eth.getBalance(this.state.search);
+                Router.pushRoute(`/address/${this.state.search}`, {address:this.state.search}, {address:this.state.search});
+            } catch (err) {
+                const message = err.message;
+                this.setState({errorMessage:message})
+            }
+        } else {
+            try {
+                const block = parseInt(this.state.search);
+                await web3.eth.getBlock(block);
+                Router.pushRoute(`/blocknumber/${this.state.search}`, {bnumber:this.state.search}, {bnumber:this.state.search});
+            } catch (err) {
+                const message = err.message;
+                this.setState({errorMessage:message})
+            }
+        }
+    }
+    onClick() {
+        window.location.reload();
+    }
     render() {
         const {Header,Row,HeaderCell,Body} = Table;
         if(this.state.blockNumber == 0) {
@@ -49,13 +84,20 @@ class ExplorerIndex extends Component {
             return(
                 <Layout>
                     <div>
-                        <Link route="/">
-                            <a>
-                                <Button fluid disabled={!this.state.found}>
-                                    {this.state.blocksFound} blocks found since your last refresh
-                                </Button>
-                            </a>
-                        </Link>
+                        <Container>
+                            <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
+                                <Form.Field>
+                                    <Input fluid icon="search" placeholder="Enter address, tx hash or block number..." 
+                                        value={this.state.search}
+                                        onChange={event=>this.setState({search:event.target.value})}
+                                    />
+                                </Form.Field>
+                                <Message error header="Oops!" content={this.state.errorMessage} />
+                            </Form>
+                        </Container>
+                        <Button fluid disabled={!this.state.found} onClick={this.onClick}>
+                            {this.state.blocksFound} new blocks found since you last loaded this page
+                        </Button>
                         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css"></link>
                         <Table>
                             <Header>
