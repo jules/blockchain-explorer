@@ -1,6 +1,6 @@
 A simple Ethereum blockchain explorer. The search bar takes either a block number, transaction hash or address, and then opens a new page to display information about it.
 
-##Set up
+## Set up
 
 To set up, simply download/clone the repo, then:
 
